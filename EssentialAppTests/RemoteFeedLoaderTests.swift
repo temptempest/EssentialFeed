@@ -11,7 +11,7 @@ import EssentialApp // @testable import EssentialApp (public )
 final class RemoteFeedLoaderTests: XCTestCase {
     func test_init_doesNotRequestDataFromURL() {
         let (_, client) = makeSUT()
-        XCTAssertNil(client.requestURL)
+        XCTAssertTrue(client.requestURLs .isEmpty)
     }
 
     func test_load_requestsDataFromURL() {
@@ -42,10 +42,8 @@ extension RemoteFeedLoaderTests {
     }
 
     private class HTTPClientSpy: HTTPClient {
-        var requestURL: URL?
         var requestURLs = [URL]()
         func get(from url: URL) {
-            requestURL = url
             requestURLs.append(url)
         }
     }
