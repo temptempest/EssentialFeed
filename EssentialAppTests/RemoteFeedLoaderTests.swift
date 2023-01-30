@@ -6,7 +6,7 @@
 //
 
 import XCTest
-import EssentialApp // @testable import EssentialApp (public )
+import EssentialApp
 
 final class RemoteFeedLoaderTests: XCTestCase {
     func test_init_doesNotRequestDataFromURL() {
@@ -45,10 +45,14 @@ final class RemoteFeedLoaderTests: XCTestCase {
     func test_load_deliversErrorOn200HTTPResponseWithInvalidJSON() {
         let (sut, client) = makeSUT()
         expect(sut, toCompleteWithError: .invalidData, when: {
-            let invalidJSON = Data( "invalid json".utf8)
+            let invalidJSON = Data("invalid json".utf8)
             client.complete(withStatusCode: 200, data: invalidJSON)
         })
     }
+//    func test_load_deliversNoItemsOn200HTTPResponseWithEmptyJSONList() {
+//        let (sut, client) = makeSUT()
+//        var capture =
+//    }
 }
 
 // MARK: - Helper
@@ -58,10 +62,10 @@ extension RemoteFeedLoaderTests {
                         when action: () -> Void,
                         file: StaticString = #filePath,
                         line: UInt = #line) {
-        var capturedErrors =  [RemoteFeedLoader.Error]()
-        sut.load { capturedErrors.append($0) }
+        var capturedResults =  [RemoteFeedLoader.Result]()
+        sut.load { capturedResults.append($0) }
         action()
-        XCTAssertEqual(capturedErrors, [error], file: file, line: line)
+        XCTAssertEqual(capturedResults, [.failure(error)], file: file, line: line)
     }
     private func makeSUT(url: URL = URL(string: "https://a-url.com")!) ->
     (sut: RemoteFeedLoader, client: HTTPClientSpy) {

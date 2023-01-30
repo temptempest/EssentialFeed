@@ -12,8 +12,11 @@ public typealias HTTPClientResult = Result<(Data, HTTPURLResponse), Error>
 public protocol HTTPClient {
     func get(from url: URL, completion: @escaping (HTTPClientResult) -> Void)
 }
-
 public struct RemoteFeedLoader {
+    public enum Result: Equatable {
+        case success([FeedItem])
+        case failure(Error)
+    }
     private let url: URL
     private let client: HTTPClient
     public enum Error: Swift.Error {
@@ -24,13 +27,13 @@ public struct RemoteFeedLoader {
         self.url = url
         self.client = client
     }
-    public  func load(completion: @escaping (Error) -> Void) {
+    public func load(completion: @escaping (Result) -> Void) {
         client.get(from: url) { result in
             switch result {
             case .success:
-                completion(.invalidData)
+                completion(.failure(.invalidData))
             case .failure:
-                completion(.connectivity)
+                completion(.failure(.connectivity))
             }
         }
     }
