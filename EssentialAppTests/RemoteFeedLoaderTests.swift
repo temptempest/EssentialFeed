@@ -119,8 +119,7 @@ extension RemoteFeedLoaderTests {
         return (sut, client)
     }
 
-    private func trackForMemoryLeaks(_ instance: AnyObject,
-                                      file: StaticString = #filePath,
+    private func trackForMemoryLeaks(_ instance: AnyObject, file: StaticString = #filePath,
                                      line: UInt = #line) {
         addTeardownBlock { [weak instance] in
             XCTAssertNil(instance,
