@@ -85,7 +85,7 @@ final class RemoteFeedLoaderTests: XCTestCase {
         sut = nil
         if let json = try? JSONSerialization.data(withJSONObject: []) {
             client.complete(withStatusCode: 200, data: json)
-            XCTAssertTrue(capturedResults .isEmpty)
+            XCTAssertTrue(capturedResults  .isEmpty)
         }
     }
 }
