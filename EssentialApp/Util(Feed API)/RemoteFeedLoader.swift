@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct RemoteFeedLoader {
+public final class RemoteFeedLoader {
     public enum Result: Equatable {
         case success([FeedItem])
         case failure(Error)
@@ -38,3 +38,13 @@ public struct RemoteFeedLoader {
         }
     }
 }
+
+//completion(self.map(data, from: response))
+//private func map(_ data: Data, from response: HTTPURLResponse) -> Result {
+//    do {
+//        let items = try FeedItemsMapper.map(data, response)
+//        return .success(items)
+//    } catch {
+//        return .failure(.invalidData)
+//    }
+//}
