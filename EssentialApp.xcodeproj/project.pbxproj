@@ -15,6 +15,7 @@
 		75B5B9812987FDC40052C7FA /* FeedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B5B9802987FDC40052C7FA /* FeedItem.swift */; };
 		75B5B9842987FF440052C7FA /* RemoteFeedLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B5B9832987FF440052C7FA /* RemoteFeedLoader.swift */; };
 		75B5B986298800360052C7FA /* RemoteFeedLoaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B5B985298800360052C7FA /* RemoteFeedLoaderTests.swift */; };
+		75EAC56629884CB2003D9A9C /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75EAC56529884CB2003D9A9C /* HTTPClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,6 +40,7 @@
 		75B5B9802987FDC40052C7FA /* FeedItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedItem.swift; sourceTree = "<group>"; };
 		75B5B9832987FF440052C7FA /* RemoteFeedLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteFeedLoader.swift; sourceTree = "<group>"; };
 		75B5B985298800360052C7FA /* RemoteFeedLoaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteFeedLoaderTests.swift; sourceTree = "<group>"; };
+		75EAC56529884CB2003D9A9C /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +146,7 @@
 			isa = PBXGroup;
 			children = (
 				75B5B9832987FF440052C7FA /* RemoteFeedLoader.swift */,
+				75EAC56529884CB2003D9A9C /* HTTPClient.swift */,
 			);
 			path = "Util(Feed API)";
 			sourceTree = "<group>";
@@ -273,6 +276,7 @@
 			files = (
 				75B5B9812987FDC40052C7FA /* FeedItem.swift in Sources */,
 				75B5B95E2987F90C0052C7FA /* MainViewController.swift in Sources */,
+				75EAC56629884CB2003D9A9C /* HTTPClient.swift in Sources */,
 				75B5B95A2987F90C0052C7FA /* AppDelegate.swift in Sources */,
 				75B5B9842987FF440052C7FA /* RemoteFeedLoader.swift in Sources */,
 				75B5B95C2987F90C0052C7FA /* SceneDelegate.swift in Sources */,
