@@ -8,9 +8,19 @@
 import XCTest
 import EssentialApp
 
+protocol HTTPSession {
+    func dataTask(with url: URL,
+                  completionHandler:
+                  @escaping (Data?, URLResponse?, Error?) -> Void) -> HTTPSessionTask
+}
+
+protocol HTTPSessionTask {
+    func resume()
+}
+
 class URLSessionHTTPClient {
-    private let session: URLSession
-    init(session: URLSession) {
+    private let session: HTTPSession
+    init(session: HTTPSession) {
         self.session = session
     }
     func get(from url: URL, completion: @escaping  (HTTPClientResult) -> Void ) {
@@ -21,11 +31,11 @@ class URLSessionHTTPClient {
         }.resume()
     }
 }
-@available(iOS, deprecated: 13.0)
+
 class URLSessionHTTPClientTests: XCTestCase {
     func test_getFromURL_resumesDataTaskWithURL() {
         let url = URL(string: "https://any-url.com")!
-        let session = URLSessionSpy()
+        let session = HTTPSessionSpy()
         let task = URLSessionDataTaskSpy()
         session.stub(url: url, task: task)
         let sut = URLSessionHTTPClient(session: session)
@@ -35,7 +45,7 @@ class URLSessionHTTPClientTests: XCTestCase {
     func test_getFromURL_failsOnRequestError() {
         let url = URL(string: "https://any-url.com")!
         let error = NSError(domain: "any error", code: 1)
-        let session = URLSessionSpy()
+        let session = HTTPSessionSpy()
         session.stub(url: url, error: error)
         let sut = URLSessionHTTPClient(session: session)
         let exp = expectation(description: "Wait for completion")
@@ -51,24 +61,20 @@ class URLSessionHTTPClientTests: XCTestCase {
         wait(for: [exp], timeout: 1.0)
     }
 }
-// MARK: - Helpers
-@available(iOS, deprecated: 13.0)
 
+// MARK: - Helpers
 extension URLSessionHTTPClientTests {
-    fileprivate class URLSessionSpy: URLSession {
+    private struct Stub {
+        let task: HTTPSessionTask
+        let error: Error?
+    }
+    private class HTTPSessionSpy: HTTPSession {
         private var stubs = [URL: Stub]()
-        // swiftlint: disable nesting
-        private struct Stub {
-            let task: URLSessionDataTask
-            let error: Error?
-        }
-        // swiftlint: enable nesting
-        func stub(url: URL, task: URLSessionDataTask = FakeURLSessionDataTask(), error: Error? = nil) {
+        func stub(url: URL, task: HTTPSessionTask = FakeURLSessionDataTask(), error: Error? = nil) {
             stubs[url] = Stub(task: task, error: error )
         }
-        override func dataTask(with url: URL,
-                               completionHandler:
-                               @escaping (Data?, URLResponse?, Error?) -> Void) -> URLSessionDataTask {
+        func dataTask(with url: URL,
+                      completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) -> HTTPSessionTask {
             guard let stub = stubs[url] else {
                 fatalError("Couldn't find stub for \(url)")
             }
@@ -76,12 +82,12 @@ extension URLSessionHTTPClientTests {
             return stub.task
         }
     }
-    fileprivate class FakeURLSessionDataTask: URLSessionDataTask {
-        override func resume() {}
+    private class FakeURLSessionDataTask: HTTPSessionTask {
+        func resume() {}
     }
-    fileprivate class URLSessionDataTaskSpy: URLSessionDataTask {
+    private class URLSessionDataTaskSpy: HTTPSessionTask {
         var resumeCallCount = 0
-        override func resume() {
+        func resume() {
             resumeCallCount += 1
         }
     }
