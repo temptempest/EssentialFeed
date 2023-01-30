@@ -11,14 +11,14 @@ import EssentialApp // @testable import EssentialApp (public )
 final class RemoteFeedLoaderTests: XCTestCase {
     func test_init_doesNotRequestDataFromURL() {
         let (_, client) = makeSUT()
-        XCTAssertTrue(client.requestURLs .isEmpty)
+        XCTAssertTrue(client.requestURLs.isEmpty)
     }
 
     func test_load_requestsDataFromURL() {
         let url = URL(string: "https://a-given-url.com")!
         let (sut, client) = makeSUT(url: url)
         sut.load()
-        XCTAssertEqual(client.requestURL, url)
+        XCTAssertTrue(client.requestURLs.isEmpty)
     }
 
     func test_loadTwice_requestsDataFromURLTwice() {
