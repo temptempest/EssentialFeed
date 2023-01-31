@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		752F889C29892C63005E4E8A /* XCTestCase+MemoryLeakTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752F889B29892C63005E4E8A /* XCTestCase+MemoryLeakTracking.swift */; };
+		752F889E2989406D005E4E8A /* URLSessionHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752F889D2989406D005E4E8A /* URLSessionHTTPClient.swift */; };
 		75B5B95A2987F90C0052C7FA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B5B9592987F90C0052C7FA /* AppDelegate.swift */; };
 		75B5B95C2987F90C0052C7FA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B5B95B2987F90C0052C7FA /* SceneDelegate.swift */; };
 		75B5B95E2987F90C0052C7FA /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B5B95D2987F90C0052C7FA /* MainViewController.swift */; };
@@ -35,6 +36,7 @@
 
 /* Begin PBXFileReference section */
 		752F889B29892C63005E4E8A /* XCTestCase+MemoryLeakTracking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+MemoryLeakTracking.swift"; sourceTree = "<group>"; };
+		752F889D2989406D005E4E8A /* URLSessionHTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionHTTPClient.swift; sourceTree = "<group>"; };
 		75B5B9562987F90C0052C7FA /* EssentialApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EssentialApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		75B5B9592987F90C0052C7FA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		75B5B95B2987F90C0052C7FA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -168,6 +170,7 @@
 				75B5B9832987FF440052C7FA /* RemoteFeedLoader.swift */,
 				75EAC56729884D0B003D9A9C /* FeedItemsMapper.swift */,
 				75EAC56529884CB2003D9A9C /* HTTPClient.swift */,
+				752F889D2989406D005E4E8A /* URLSessionHTTPClient.swift */,
 			);
 			path = "Utility (Feed API)";
 			sourceTree = "<group>";
@@ -306,6 +309,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				75B5B9812987FDC40052C7FA /* FeedItem.swift in Sources */,
+				752F889E2989406D005E4E8A /* URLSessionHTTPClient.swift in Sources */,
 				75EAC56F29888115003D9A9C /* MainAssembly.swift in Sources */,
 				75B5B95E2987F90C0052C7FA /* MainViewController.swift in Sources */,
 				75EAC56629884CB2003D9A9C /* HTTPClient.swift in Sources */,
