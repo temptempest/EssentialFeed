@@ -29,7 +29,7 @@ class FeedStore {
 // MARK: - Helpers
 final class CacheFeedUseCaseTests: XCTestCase {
     func test_init_doesNotDeleteCacheUponCreation() {
-        let (_, store) = makeSUT() 
+        let (_, store) = makeSUT()
         XCTAssertEqual(store.deleteCachedFeedCount, 0)
     }
     
