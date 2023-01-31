@@ -1,6 +1,6 @@
 //
-//  EssentialAppAPIEndToEndTests.swift
-//  EssentialAppAPIEndToEndTests
+//  EssentialAPIEndToEndTests.swift
+//  EssentialAPIEndToEndTests
 //
 //  Created by temptempest on 30.01.2023.
 //

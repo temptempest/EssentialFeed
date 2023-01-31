@@ -18,7 +18,7 @@
 		752F898829895562005E4E8A /* XCTestCase+MemoryLeakTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752F898529895562005E4E8A /* XCTestCase+MemoryLeakTracking.swift */; };
 		752F898929895562005E4E8A /* URLSessionHTTPClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752F898629895562005E4E8A /* URLSessionHTTPClientTests.swift */; };
 		752F898A29895562005E4E8A /* RemoteFeedLoaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752F898729895562005E4E8A /* RemoteFeedLoaderTests.swift */; };
-		752F899329895695005E4E8A /* EssentialAppAPIEndToEndTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752F899229895695005E4E8A /* EssentialAppAPIEndToEndTests.swift */; };
+		752F899329895695005E4E8A /* EssentialAPIEndToEndTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752F899229895695005E4E8A /* EssentialAPIEndToEndTests.swift */; };
 		752F899429895695005E4E8A /* EssentialFeed.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 752F895F2989552C005E4E8A /* EssentialFeed.framework */; };
 /* End PBXBuildFile section */
 
@@ -52,8 +52,8 @@
 		752F898529895562005E4E8A /* XCTestCase+MemoryLeakTracking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XCTestCase+MemoryLeakTracking.swift"; sourceTree = "<group>"; };
 		752F898629895562005E4E8A /* URLSessionHTTPClientTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLSessionHTTPClientTests.swift; sourceTree = "<group>"; };
 		752F898729895562005E4E8A /* RemoteFeedLoaderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteFeedLoaderTests.swift; sourceTree = "<group>"; };
-		752F899029895695005E4E8A /* EssentialAppAPIEndToEndTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EssentialAppAPIEndToEndTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		752F899229895695005E4E8A /* EssentialAppAPIEndToEndTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EssentialAppAPIEndToEndTests.swift; sourceTree = "<group>"; };
+		752F899029895695005E4E8A /* EssentialAPIEndToEndTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EssentialAPIEndToEndTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		752F899229895695005E4E8A /* EssentialAPIEndToEndTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EssentialAPIEndToEndTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,7 +88,7 @@
 			children = (
 				752F89612989552C005E4E8A /* EssentialFeed */,
 				752F896B2989552C005E4E8A /* EssentialFeedTests */,
-				752F899129895695005E4E8A /* EssentialAppAPIEndToEndTests */,
+				752F899129895695005E4E8A /* EssentialAPIEndToEndTests */,
 				752F89602989552C005E4E8A /* Products */,
 			);
 			sourceTree = "<group>";
@@ -98,7 +98,7 @@
 			children = (
 				752F895F2989552C005E4E8A /* EssentialFeed.framework */,
 				752F89672989552C005E4E8A /* EssentialFeedTests.xctest */,
-				752F899029895695005E4E8A /* EssentialAppAPIEndToEndTests.xctest */,
+				752F899029895695005E4E8A /* EssentialAPIEndToEndTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -151,12 +151,12 @@
 			path = "Utility (Feed API)";
 			sourceTree = "<group>";
 		};
-		752F899129895695005E4E8A /* EssentialAppAPIEndToEndTests */ = {
+		752F899129895695005E4E8A /* EssentialAPIEndToEndTests */ = {
 			isa = PBXGroup;
 			children = (
-				752F899229895695005E4E8A /* EssentialAppAPIEndToEndTests.swift */,
+				752F899229895695005E4E8A /* EssentialAPIEndToEndTests.swift */,
 			);
-			path = EssentialAppAPIEndToEndTests;
+			path = EssentialAPIEndToEndTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -209,9 +209,9 @@
 			productReference = 752F89672989552C005E4E8A /* EssentialFeedTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		752F898F29895695005E4E8A /* EssentialAppAPIEndToEndTests */ = {
+		752F898F29895695005E4E8A /* EssentialAPIEndToEndTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 752F899729895695005E4E8A /* Build configuration list for PBXNativeTarget "EssentialAppAPIEndToEndTests" */;
+			buildConfigurationList = 752F899729895695005E4E8A /* Build configuration list for PBXNativeTarget "EssentialAPIEndToEndTests" */;
 			buildPhases = (
 				752F898C29895695005E4E8A /* Sources */,
 				752F898D29895695005E4E8A /* Frameworks */,
@@ -222,9 +222,9 @@
 			dependencies = (
 				752F899629895695005E4E8A /* PBXTargetDependency */,
 			);
-			name = EssentialAppAPIEndToEndTests;
+			name = EssentialAPIEndToEndTests;
 			productName = EssentialAppAPIEndToEndTests;
-			productReference = 752F899029895695005E4E8A /* EssentialAppAPIEndToEndTests.xctest */;
+			productReference = 752F899029895695005E4E8A /* EssentialAPIEndToEndTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -263,7 +263,7 @@
 			targets = (
 				752F895E2989552C005E4E8A /* EssentialFeed */,
 				752F89662989552C005E4E8A /* EssentialFeedTests */,
-				752F898F29895695005E4E8A /* EssentialAppAPIEndToEndTests */,
+				752F898F29895695005E4E8A /* EssentialAPIEndToEndTests */,
 			);
 		};
 /* End PBXProject section */
@@ -320,7 +320,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				752F899329895695005E4E8A /* EssentialAppAPIEndToEndTests.swift in Sources */,
+				752F899329895695005E4E8A /* EssentialAPIEndToEndTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -601,7 +601,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		752F899729895695005E4E8A /* Build configuration list for PBXNativeTarget "EssentialAppAPIEndToEndTests" */ = {
+		752F899729895695005E4E8A /* Build configuration list for PBXNativeTarget "EssentialAPIEndToEndTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				752F899829895695005E4E8A /* Debug */,
