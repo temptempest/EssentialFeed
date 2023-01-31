@@ -23,7 +23,6 @@ final class URLSessionHTTPClient {
 }
 
 final class URLSessionHTTPClientTests: XCTestCase {
-
     override func setUp() {
         super.setUp()
         URLProtocolStub.startInterceptingRequest()
@@ -32,7 +31,6 @@ final class URLSessionHTTPClientTests: XCTestCase {
         super.tearDown()
         URLProtocolStub.stopInterceptingRequest()
     }
-
     func test_getFromURL_performsGetRequestWithURL() {
         let url = URL(string: "https://any-url.com")!
         let exp = expectation(description: "Wait for request")
@@ -44,7 +42,6 @@ final class URLSessionHTTPClientTests: XCTestCase {
         makeSUT().get(from: url) { _ in  }
         wait(for: [exp], timeout: 1.0)
     }
-
     func test_getFromURL_failsOnRequestError() {
         let url = URL(string: "https://any-url.com")!
         let error = NSError(domain: "any error", code: 1)
@@ -72,8 +69,19 @@ extension URLSessionHTTPClientTests {
         let error: Error?
     }
 
-    private func makeSUT() -> URLSessionHTTPClient {
-        return URLSessionHTTPClient()
+    private func makeSUT(file: StaticString = #filePath,
+                         line: UInt = #line) -> URLSessionHTTPClient {
+        let sut = URLSessionHTTPClient()
+        trackForMemoryLeaks(sut, file: file, line: line)
+        return sut
+    }
+
+    private func trackForMemoryLeaks(_ instance: AnyObject, file: StaticString = #filePath,
+                                     line: UInt = #line) {
+        addTeardownBlock { [weak instance] in
+            XCTAssertNil(instance,
+                         "Instance should have been deallocated. Potentional memory leak.", file: file, line: line)
+        }
     }
 
     private final class URLProtocolStub: URLProtocol {
