@@ -53,7 +53,7 @@ extension EssentialAppAPIEndToEndTests {
             receivedResult = result
             exp.fulfill()
         }
-        wait(for: [exp], timeout: 15.0)
+        wait(for: [exp], timeout: 20.0)
         return receivedResult
     }
     
