@@ -10,19 +10,7 @@ import EssentialFeed
 
 final class EssentialAppAPIEndToEndTests: XCTestCase {
     func test_endToEndTestServerGETFeedResult_matchesFixedTestAccountData() {
-        let testServerURL = URL(string: "https://essentialdeveloper.com/feed-case-study/test-api/feed")!
-        let client = URLSessionHTTPClient()
-        let loader = RemoteFeedLoader(url: testServerURL, client: client)
-
-        let exp = expectation(description: "Wait for load completion")
-
-        var receivedResult: LoadFeedResult?
-        loader.load { result  in
-            receivedResult = result
-            exp.fulfill()
-        }
-        wait(for: [exp], timeout: 5.0) // 5
-        switch receivedResult {
+        switch getFeedResult() {
         case let .success(items)?:
             XCTAssertEqual(items.count, 8, "Expected 8 items in the test account feed")
             XCTAssertEqual(items[0], expectedItem(at: 0))
@@ -40,7 +28,6 @@ final class EssentialAppAPIEndToEndTests: XCTestCase {
             XCTFail("Expected successful feed result, got no result instead")
         }
     }
-    
     private func expectedItem (at index: Int) -> FeedItem {
         return FeedItem(
             id: id(at: index),
@@ -52,6 +39,23 @@ final class EssentialAppAPIEndToEndTests: XCTestCase {
 
 // MARK: - Helper
 extension EssentialAppAPIEndToEndTests {
+
+    private func getFeedResult() -> LoadFeedResult? {
+        let testServerURL = URL(string: "https://essentialdeveloper.com/feed-case-study/test-api/feed")!
+        let client = URLSessionHTTPClient()
+        let loader = RemoteFeedLoader(url: testServerURL, client: client)
+
+        let exp = expectation(description: "Wait for load completion")
+
+        var receivedResult: LoadFeedResult?
+        loader.load { result  in
+            receivedResult = result
+            exp.fulfill()
+        }
+        wait(for: [exp], timeout: 10.0) // 5
+        return receivedResult 
+    }
+    
     private func id(at index: Int) -> UUID {
         return UUID(uuidString: [
             "73A7F70C-75DA-4C2E-B5A3-EED40DC53AA6",
