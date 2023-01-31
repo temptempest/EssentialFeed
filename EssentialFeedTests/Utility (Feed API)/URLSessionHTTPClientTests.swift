@@ -2,11 +2,11 @@
 //  URLSessionHTTPClientTests.swift
 //  EssentialAppTests
 //
-//  Created by temptempest on 31.01.2023.
+//  Created by temptempest on 30.01.2023.
 //
 
 import XCTest
-import EssentialApp
+import EssentialFeed
 
 final class URLSessionHTTPClientTests: XCTestCase {
     override func setUp() {
