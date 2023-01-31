@@ -8,9 +8,9 @@
 import XCTest
 import EssentialApp
 
-final class URLSessionHTTPClient {
+final class URLSessionHTTPClient: HTTPClient {
     private let session: URLSession
-    init(session: URLSession = .shared ) {
+    init(session: URLSession = .shared) {
         self.session = session
     }
     struct UnexpectedValuesRepresentation: Error {}
@@ -95,7 +95,7 @@ extension URLSessionHTTPClientTests {
     }
 
     private func makeSUT(file: StaticString = #filePath,
-                         line: UInt = #line) -> URLSessionHTTPClient {
+                         line: UInt = #line) -> HTTPClient {
         let sut = URLSessionHTTPClient()
         trackForMemoryLeaks(sut, file: file, line: line)
         return sut
