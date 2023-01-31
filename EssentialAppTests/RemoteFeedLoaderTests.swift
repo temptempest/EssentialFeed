@@ -38,7 +38,7 @@ final class RemoteFeedLoaderTests: XCTestCase {
         let samples = [199, 201, 300, 400, 500]
         samples.enumerated().forEach { index, code in
             expect(sut, toCompleteWith: failure(.invalidData), when: {
-                if let json = try? JSONSerialization.data(withJSONObject: [] ) {
+                if let json = try? JSONSerialization.data(withJSONObject: []) {
                     client.complete(withStatusCode: code, data: json, at: index)
                 }
             })

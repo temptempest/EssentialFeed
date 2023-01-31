@@ -10,9 +10,7 @@ import Foundation
 internal class FeedItemsMapper {
     private struct Root: Decodable {
         let items: [Item]
-        var feed: [FeedItem] {
-            items.map { $0.item }
-        }
+        var feed: [FeedItem] { items.map { $0.item } }
     }
 
     private struct Item: Decodable {

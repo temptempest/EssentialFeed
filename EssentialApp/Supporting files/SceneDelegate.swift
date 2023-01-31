@@ -15,7 +15,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         configureWindow(windowScene)
     }
+}
 
+extension SceneDelegate {
     private func configureWindow(_ windowScene: UIWindowScene) {
         window = UIWindow(windowScene: windowScene)
         window?.rootViewController = MainAssembly.congigure()
